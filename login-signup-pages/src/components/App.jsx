@@ -43,9 +43,20 @@ const App = () => {
             })
     }
 
-    const registerUser = () => {
+    const postNewUser = newUser => {
         axios.post(`https://spotsuggest.herokuapp.com/api/auth/register`)
+        .then(resolve => {
+            console.log(resolve);
+            console.log(resolve.data);
+        })
+        .catch(error => {
+            console.log("Post Error\n" + error);
+        })
     }
+
+    // const registerUser = () => {
+    //     axios.post(`https://spotsuggest.herokuapp.com/api/auth/register`)
+    // }
 
     /* **RETURN STATEMENT AND COMPONENTS** */
 
