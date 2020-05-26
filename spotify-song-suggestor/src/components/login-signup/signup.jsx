@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Signup = props => {
     const { user, setUser, onChangeHandler, error } = props;
-        
+
     const postNewUser = newUser => {
         axios.post(`https://spotsuggest.herokuapp.com/api/auth/register`)
             .then(resolve => {
@@ -28,6 +28,7 @@ const Signup = props => {
 
     return (
         <form className="form">
+            <h2>Sign Up</h2>
             <p className="error">{error.username}</p>
             <input type="text"
                 name="username"
