@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Signup = props => {
     return (
-        <form className="signupForm">
+        <form className="form">
             <input type="text"
                 name="username"
                 placeholder="Create Username"
@@ -12,11 +12,12 @@ const Signup = props => {
                 name="password"
                 placeholder="Create Password"
             />
-            <button type="submit">Sign-Up</button>
+            <button type="submit" className="button">SIGN UP</button>
 
-            <div className="loginLink">
-                <Link to="/">Already a Member? Login Now</Link>
-            </div>
+            <hr/>
+
+            <p className="buttonTitle">Already have an account?</p>
+            <Link to="/" className="link">LOG IN</Link>
         </form>
     )
 }
