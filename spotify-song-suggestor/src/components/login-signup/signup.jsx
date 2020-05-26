@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Signup = props => {
+    const [userRegister, setUserRegister] = useState({});
+    const user = userRegister;
+    const setUser = setUserRegister;
 
-    const { onChangeHandler, user, error } = props;
+    const { onChangeHandler, error } = props;
+        
+    const postNewUser = newUser => {
+        axios.post(`https://spotsuggest.herokuapp.com/api/auth/register`)
+            .then(resolve => {
+                console.log(resolve);
+                console.log(resolve.data);
+            })
+            .catch(error => {
+                console.log("Post Error\n" + error);
+            })
+    }
 
     const onSubmit = event => {
         const newUser = {
@@ -12,7 +27,7 @@ const Signup = props => {
         }
 
         postNewUser(newUser);
-        setUser(initialUser);
+        setUser({});
     }
 
     return (
@@ -22,14 +37,14 @@ const Signup = props => {
                 name="username"
                 placeholder="Create Username"
                 onChange={onChangeHandler}
-                // value={user.username}
+            // value={user.username}
             />
             <p className="error">{error.password}</p>
             <input type="password"
                 name="password"
                 placeholder="Create Password"
                 onChange={onChangeHandler}
-                // value={user.password}
+            // value={user.password}
             />
             <button type="submit" className="button">SIGN UP</button>
 

@@ -18,10 +18,8 @@ const register = "https://spotsuggest.herokuapp.com/api/auth/register";
 const App = () => {
 
     /* **USE STATES** */
-
-    const [userLogin, setUserLogin] = useState(initialUser);
-    const [userRegister, setUserRegister] = useState(initialUser);
-    const [error, setError] = useState(initialError);
+    const [error, setError] = useState({});
+    const [user, setUser] = useState({})
 
     /* **FUNCTIONS** */
 
@@ -50,27 +48,6 @@ const App = () => {
             })
     }
 
-    const loginUser = () => {
-        axios.post(`https://spotsuggest.herokuapp.com/api/auth/login`)
-            .then(resolve => {
-                console.log(resolve)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
-
-    const postNewUser = newUser => {
-        axios.post(`https://spotsuggest.herokuapp.com/api/auth/register`)
-            .then(resolve => {
-                console.log(resolve);
-                console.log(resolve.data);
-            })
-            .catch(error => {
-                console.log("Post Error\n" + error);
-            })
-    }
-
     /* **RETURN STATEMENT AND COMPONENTS** */
 
     return (
@@ -80,16 +57,12 @@ const App = () => {
                 <Route path="/" exact>
                     <Login
                         onChangeHandler={onChangeHandler}
-                        setUser={serUserLogin}
-                        user={userLogin}
                         error={error}
                     />
                 </Route>
                 <Route path="/signup">
                     <Signup
                         onChangeHandler={onChangeHandler}
-                        setUser={serUserRegister}
-                        user={userRegister}
                         error={error}
                     />
                 </Route>
