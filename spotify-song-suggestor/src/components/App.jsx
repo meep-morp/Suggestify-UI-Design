@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, } from "react-router-dom";
 import "./App.css"
 import * as yup from "yup";
 import axios from "axios";
-import formSchema from "./formScheme"
-import Login from "./login";
-import Signup from "./signup";
+import formSchema from "./login-signup/formScheme"
+import Login from "./login-signup/login";
+import Signup from "./login-signup/signup";
 import Nav from "./nav";
 import Footer from "./footer";
 
@@ -27,7 +27,6 @@ const App = () => {
 
     /* **USE STATES** */
 
-    const [formValues, setFormValues] = useState({});
     const [user, setUser] = useState(initialUser);
     const [error, setError] = useState(initialError);
 
