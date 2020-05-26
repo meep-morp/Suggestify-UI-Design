@@ -8,6 +8,7 @@ import Login from "./login-signup/login";
 import Signup from "./login-signup/signup";
 import Nav from "./nav";
 import Footer from "./footer";
+import PrivateRoute from './utils/privateRoute';
 
 /* **VARIBLES** */
 
@@ -31,7 +32,7 @@ const App = () => {
     const [error, setError] = useState(initialError);
 
     /* **FUNCTIONS** */
-
+    
     const onChangeHandler = event => {
         const name = event.target.name;
         const value = event.target.value;
@@ -110,7 +111,11 @@ const App = () => {
                         user={user}
                     />
                 </Route>
+                {/* <PrivateRoute>
+                
+                </PrivateRoute> */}
             </Router>
+
             <Footer />
         </div>
     )
