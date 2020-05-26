@@ -29,7 +29,7 @@ const App = () => {
         const name = event.target.name;
         const value = event.target.value;
 
-        setUser({
+        setUserLogin({
             ...user,
             [name]: value,
         })
@@ -54,7 +54,7 @@ const App = () => {
         const name = event.target.name;
         const value = event.target.value;
 
-        setUser({
+        setUserRegister({
             ...user,
             [name]: value,
         })
