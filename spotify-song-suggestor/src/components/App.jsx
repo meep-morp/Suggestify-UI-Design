@@ -15,25 +15,42 @@ import PrivateRoute from './utils/privateRoute';
 const login = "https://spotsuggest.herokuapp.com/api/auth/login";
 const register = "https://spotsuggest.herokuapp.com/api/auth/register";
 
-const initialUser = {
-    username: "",
-    password: "",
-}
-const initialError = {
-    username: "",
-    password: "",
-}
-
 const App = () => {
 
     /* **USE STATES** */
 
-    const [user, setUser] = useState(initialUser);
+    const [userLogin, setUserLogin] = useState(initialUser);
+    const [userRegister, setUserRegister] = useState(initialUser);
     const [error, setError] = useState(initialError);
 
     /* **FUNCTIONS** */
     
-    const onChangeHandler = event => {
+    const onChangeLogin = event => {
+        const name = event.target.name;
+        const value = event.target.value;
+
+        setUser({
+            ...user,
+            [name]: value,
+        })
+
+        yup.reach(formSchema, name)
+            .validate(value)
+            .then(resolve => {
+                setError({
+                    ...error,
+                    [name]: "",
+                })
+            })
+            .catch(err => {
+                setError({
+                    ...error,
+                    [name]: err.errors[0],
+                })
+            })
+    }
+
+    const onChangeRegister = event => {
         const name = event.target.name;
         const value = event.target.value;
 
@@ -97,15 +114,15 @@ const App = () => {
             <Router>
                 <Route path="/" exact>
                     <Login
-                        onChangeHandler={onChangeHandler}
-                        user={user}
+                        onChangeHandler={onChangeLogin}
+                        user={userLogin}
                         error={error}
                     />
                 </Route>
                 <Route path="/signup">
                     <Signup
-                        onChangeHandler={onChangeHandler}
-                        user={user}
+                        onChangeHandler={onChangeRegister}
+                        user={userRegister}
                         error={error}
                     />
                 </Route>
