@@ -4,6 +4,16 @@ import { Link } from "react-router-dom";
 const Login = props => {
 
     const { onChangeHandler, user, error } = props;
+    
+    const onSubmit = event => {
+        const newUser = {
+            username: user.username,
+            password: user.password,
+        }
+
+        postNewUser(newUser);
+        setUser(initialUser);
+    }
 
     return (
         <form className="form">

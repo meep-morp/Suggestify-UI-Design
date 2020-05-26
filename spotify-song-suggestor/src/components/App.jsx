@@ -24,38 +24,13 @@ const App = () => {
     const [error, setError] = useState(initialError);
 
     /* **FUNCTIONS** */
-    
-    const onChangeLogin = event => {
+
+    const onChangeHandler = event => {
         const name = event.target.name;
         const value = event.target.value;
 
-        setUserLogin({
-            ...userLogin,
-            [name]: value,
-        })
-
-        yup.reach(formSchema, name)
-            .validate(value)
-            .then(resolve => {
-                setError({
-                    ...error,
-                    [name]: "",
-                })
-            })
-            .catch(err => {
-                setError({
-                    ...error,
-                    [name]: err.errors[0],
-                })
-            })
-    }
-
-    const onChangeRegister = event => {
-        const name = event.target.name;
-        const value = event.target.value;
-
-        setUserRegister({
-            ...userRegister,
+        setUser({
+            ...user,
             [name]: value,
         })
 
@@ -96,16 +71,6 @@ const App = () => {
             })
     }
 
-    const onSubmit = event => {
-        const newUser = {
-            username: user.username,
-            password: user.password,
-        }
-
-        postNewUser(newUser);
-        setUser(initialUser);
-    }
-
     /* **RETURN STATEMENT AND COMPONENTS** */
 
     return (
@@ -114,14 +79,16 @@ const App = () => {
             <Router>
                 <Route path="/" exact>
                     <Login
-                        onChangeHandler={onChangeLogin}
+                        onChangeHandler={onChangeHandler}
+                        setUser={serUserLogin}
                         user={userLogin}
                         error={error}
                     />
                 </Route>
                 <Route path="/signup">
                     <Signup
-                        onChangeHandler={onChangeRegister}
+                        onChangeHandler={onChangeHandler}
+                        setUser={serUserRegister}
                         user={userRegister}
                         error={error}
                     />
