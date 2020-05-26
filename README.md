@@ -2,14 +2,17 @@
 
 ## Proposal
 
-[ ] What problem does your app solve? ** Finding more songs you might not
-otherwise find in the app. ** Avoid unnecessary recommendations on your
+### What problem does your app solve? 
+Finding more songs you might not
+otherwise find in the app. 
+Avoid unnecessary recommendations on your
 home-page in the app.
 
-[ ] Be as specific as possible; how does your app solve the problem? \*\*
+### Be as specific as possible how does your app solve the problem?
 Implement a Neural Network to do a classification on song features.
 
-[ ] What is the mission statement? \*\* Help users find and visualize songs that
+### What is the mission statement? 
+Help users find and visualize songs that
 fit their personal taste.
 
 ## Features
