@@ -3,11 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Signup = props => {
-    const [userRegister, setUserRegister] = useState({});
-    const user = userRegister;
-    const setUser = setUserRegister;
-
-    const { onChangeHandler, error } = props;
+    const { user, setUser, onChangeHandler, error } = props;
         
     const postNewUser = newUser => {
         axios.post(`https://spotsuggest.herokuapp.com/api/auth/register`)

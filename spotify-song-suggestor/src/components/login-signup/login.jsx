@@ -4,12 +4,8 @@ import { Link } from "react-router-dom";
 
 const Login = props => {
 
-    const { onChangeHandler, error } = props;
-    const [userLogin, setUserLogin] = useState({});
-    const user = userLogin;
-    const setUser = setUserLogin;
+    const { user, setUser, onChangeHandler, error } = props;
 
-    
     const loginUser = () => {
         axios.post(`https://spotsuggest.herokuapp.com/api/auth/login`)
             .then(resolve => {

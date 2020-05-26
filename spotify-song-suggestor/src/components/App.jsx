@@ -20,12 +20,16 @@ const App = () => {
     /* **USE STATES** */
     const [error, setError] = useState({});
     const [user, setUser] = useState({})
+    const [userRegister, setUserRegister] = useState({});
+    const [userLogin, setUserLogin] = useState({});
 
     /* **FUNCTIONS** */
 
     const onChangeHandler = event => {
         const name = event.target.name;
         const value = event.target.value;
+
+        console.log(user)
 
         setUser({
             ...user,
@@ -58,12 +62,16 @@ const App = () => {
                     <Login
                         onChangeHandler={onChangeHandler}
                         error={error}
+                        user={userLogin}
+                        setUser={setUserLogin}
                     />
                 </Route>
                 <Route path="/signup">
                     <Signup
                         onChangeHandler={onChangeHandler}
                         error={error}
+                        user={setUserRegister}
+                        setUser={setUserRegister}
                     />
                 </Route>
                 {/* <PrivateRoute>

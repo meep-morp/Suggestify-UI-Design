@@ -42,8 +42,9 @@ html {
     width: 400px;
     padding: 15px;
     color: white;
+    font-size: 14px;
     letter-spacing: 2px;
-    font-weight: bolder;
+    font-weight: bold;
     cursor: pointer;
 }
 
@@ -69,9 +70,11 @@ hr {
     text-decoration: none;
     font-weight: bold;
     background-color: white;
+    letter-spacing: 2px;
     border: gray 2px solid;
     border-radius: 30px;
     padding: 12px 0;
+    font-size: 14px;
     width: 400px;
     text-align: center;
 }
