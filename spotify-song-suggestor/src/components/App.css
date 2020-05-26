@@ -83,3 +83,7 @@ hr {
 }
 
 /* **ERROR STYLES** */
+
+.error {
+    color: red;
+}

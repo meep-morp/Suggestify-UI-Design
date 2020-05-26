@@ -36,28 +36,25 @@ const App = () => {
         const name = event.target.name;
         const value = event.target.value;
 
-        console.log(value);
+        setUser({
+            ...user,
+            [name]: value,
+        })
 
         yup.reach(formSchema, name)
             .validate(value)
             .then(resolve => {
                 setError({
-                    [name]: "",
                     ...error,
+                    [name]: "",
                 })
             })
             .catch(err => {
                 setError({
                     ...error,
-                    [name]: error.errors[0],
+                    [name]: err.errors[0],
                 })
-                console.log("Yup Error \n" + error);
             })
-
-        setUser({
-            [name]: value,
-            ...user,
-        })
     }
 
     const loginUser = () => {
@@ -82,7 +79,7 @@ const App = () => {
     }
 
     const onSubmit = event => {
-        const newUser={
+        const newUser = {
             username: user.username,
             password: user.password,
         }

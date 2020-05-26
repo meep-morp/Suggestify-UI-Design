@@ -12,14 +12,14 @@ const Signup = props => {
                 name="username"
                 placeholder="Create Username"
                 onChange={onChangeHandler}
-                value={user.username}
+                // value={user.username}
             />
             <p className="error">{error.password}</p>
             <input type="password"
                 name="password"
                 placeholder="Create Password"
                 onChange={onChangeHandler}
-                value={user.password}
+                // value={user.password}
             />
             <button type="submit" className="button">SIGN UP</button>
 
