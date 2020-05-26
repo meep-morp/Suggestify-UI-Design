@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 
 const Signup = props => {
 
-    const { onChangeHandler, user } = props;
+    const { onChangeHandler, user, error } = props;
 
     return (
         <form className="form">
+            <p className="error">{error.username}</p>
             <input type="text"
                 name="username"
                 placeholder="Create Username"
                 onChange={onChangeHandler}
                 value={user.username}
             />
+            <p className="error">{error.password}</p>
             <input type="password"
                 name="password"
                 placeholder="Create Password"

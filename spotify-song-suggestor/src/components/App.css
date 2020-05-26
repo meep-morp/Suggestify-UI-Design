@@ -78,7 +78,7 @@ hr {
 
 .link:hover {
     background-color: gray;
-    transition: 0.4s ease;
+    transition: 0.3s ease;
     color: white;
 }
 

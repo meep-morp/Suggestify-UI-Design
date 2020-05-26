@@ -41,16 +41,15 @@ const App = () => {
         yup.reach(formSchema, name)
             .validate(value)
             .then(resolve => {
-                console.log(resolve);
                 setError({
                     [name]: "",
                     ...error,
                 })
             })
-            .catch(error => {
+            .catch(err => {
                 setError({
-                    [name]: error.errors[0],
                     ...error,
+                    [name]: error.errors[0],
                 })
                 console.log("Yup Error \n" + error);
             })
@@ -102,12 +101,14 @@ const App = () => {
                     <Login
                         onChangeHandler={onChangeHandler}
                         user={user}
+                        error={error}
                     />
                 </Route>
                 <Route path="/signup">
                     <Signup
                         onChangeHandler={onChangeHandler}
                         user={user}
+                        error={error}
                     />
                 </Route>
             </Router>
