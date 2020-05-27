@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, } from "react-router-dom";
 import "./App.css"
 import * as yup from "yup";
-import axios from "axios";
-import formSchema from "./login-signup/formScheme"
+import formSchema from "./login-signup/formScheme";
 import Login from "./login-signup/login";
 import Signup from "./login-signup/signup";
 import Nav from "./nav";
@@ -11,29 +10,20 @@ import Footer from "./footer";
 import PrivateRoute from './utils/privateRoute';
 
 /* **VARIBLES** */
-
-const login = "https://spotsuggest.herokuapp.com/api/auth/login";
-const register = "https://spotsuggest.herokuapp.com/api/auth/register";
-
-const initialUser = {
-    username: "",
-    password: "",
-}
-const initialError = {
-    username: "",
-    password: "",
+const initialFormValues = {
+    username: '',
+    password: ''
 }
 
 const App = () => {
-
-    /* **USE STATES** */
-
-    const [user, setUser] = useState(initialUser);
-    const [error, setError] = useState(initialError);
+    /* **USE STATESs** */
+    const [register, setRegister] = useState(initialFormValues);
+    const [login, setLogin] = useState(initialFormValues);
+    const [error, setError] = useState({});
 
     /* **FUNCTIONS** */
-    
-    const onChangeHandler = event => {
+
+    const onChangeHandler = (event, user, setUser) => {
         const name = event.target.name;
         const value = event.target.value;
 
@@ -58,37 +48,6 @@ const App = () => {
             })
     }
 
-    const loginUser = () => {
-        axios.post(`https://spotsuggest.herokuapp.com/api/auth/login`)
-            .then(resolve => {
-                console.log(resolve)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
-
-    const postNewUser = newUser => {
-        axios.post(`https://spotsuggest.herokuapp.com/api/auth/register`)
-            .then(resolve => {
-                console.log(resolve);
-                console.log(resolve.data);
-            })
-            .catch(error => {
-                console.log("Post Error\n" + error);
-            })
-    }
-
-    const onSubmit = event => {
-        const newUser = {
-            username: user.username,
-            password: user.password,
-        }
-
-        postNewUser(newUser);
-        setUser(initialUser);
-    }
-
     /* **RETURN STATEMENT AND COMPONENTS** */
 
     return (
@@ -98,14 +57,16 @@ const App = () => {
                 <Route path="/" exact>
                     <Login
                         onChangeHandler={onChangeHandler}
-                        user={user}
+                        user={login}
+                        setUser={setLogin}
                         error={error}
                     />
                 </Route>
                 <Route path="/signup">
                     <Signup
-                        onChangeHandler={onChangeHandler}
-                        user={user}
+                    onChangeHandler={onChangeHandler}
+                        user={register}
+                        setUser={setRegister}
                         error={error}
                     />
                 </Route>
