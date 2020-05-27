@@ -4,16 +4,7 @@ import { Link } from "react-router-dom";
 import { checkPropTypes } from "prop-types";
 
 const Signup = props => {
-const {user, setUser, onChangeHandler, error} = props
-
-    // const [register, setRegister] = useState(initialFormValues);
-    // const changeHandler = (e) => {
-    //     const name = e.target.name;
-    //     const value = e.target.value;
-    //     setRegister({...register, [name]: value, })
-        
-    //   };
-
+    const { user, setUser, onChangeHandler, error } = props
     const submitHandler = (e) => {
         e.preventDefault();
         const newRegister = {
@@ -21,10 +12,10 @@ const {user, setUser, onChangeHandler, error} = props
             password: user.password,
         }
         console.log(newRegister)
-         //setFormValues(initialFormValues);
+        //setFormValues(initialFormValues);
         //axios post the newUser to backend 
         axios
-        .post(`https://spotsuggest.herokuapp.com/api/auth/register`, newRegister)
+            .post(`https://spotsuggest.herokuapp.com/api/auth/register`, newRegister)
             .then(res => {
                 console.log(res.config.data);
             })
@@ -34,20 +25,37 @@ const {user, setUser, onChangeHandler, error} = props
     return (
         <form className="form">
             <h2>Sign Up</h2>
-            <p className="error">{error.username}</p>
+
+            <div className="error">{error.last_name}</div>
+            <div className="error">{error.first_name}</div>
+            <div className="name">
+                <input type="text"
+                    name="first_name"
+                    placeholder="First Name"
+                    onChange={(event) => onChangeHandler(event, user, setUser)}
+                />
+
+                <input type="text"
+                    name="last_name"
+                    placeholder="Last Name"
+                    onChange={(event) => onChangeHandler(event, user, setUser)}
+                />
+            </div>
+
+            <div className="error">{error.username}</div>
             <input type="text"
                 name="username"
                 placeholder="Create Username"
                 onChange={(event) => onChangeHandler(event, user, setUser)}
-                // value={register.username}
+            // value={register.username}
             />
-           
-           <p className="error">{error.password}</p>
+
+            <div className="error">{error.password}</div>
             <input type="password"
                 name="password"
                 placeholder="Create Password"
                 onChange={(event) => onChangeHandler(event, user, setUser)}
-                // value={register.password}
+            // value={register.password}
             />
             <button type="submit" className="button" onClick={submitHandler}>SIGN UP</button>
 

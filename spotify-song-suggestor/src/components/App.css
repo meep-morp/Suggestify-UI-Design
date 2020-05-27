@@ -59,6 +59,16 @@ nav a {
     transition: 0.2s ease;
 }
 
+.name {
+    display: flex;
+    flex-direction: row;
+}
+
+.name input {
+    width: 185px;
+    margin: 10px;
+}
+
 .button {
     background-color: #1db954;
     border: none;

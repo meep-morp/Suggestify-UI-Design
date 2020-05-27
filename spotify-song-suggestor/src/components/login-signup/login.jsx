@@ -39,14 +39,14 @@ const Login = props => {
     return (
         <form className="form">
             <h2>Log In</h2>
-            <p className="error">{error.username}</p>
+            <div className="error">{error.username}</div>
             <input type="text"
                 name="username"
                 placeholder="Username"
                 onChange={(event) => onChangeHandler(event, user, setUser)}
             />
 
-            <p className="error">{error.password}</p>
+            <div className="error">{error.password}</div>
             <input type="password"
                 name="password"
                 placeholder="Password"
