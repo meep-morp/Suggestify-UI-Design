@@ -4,6 +4,30 @@ html {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+/* **NAV STYLES** */
+nav {
+    background-color: black;
+    text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 3% 0;
+    color: #FFFFFF;
+  }
+nav a {
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-left: 0.5%;
+    padding: 1% 1.5%;
+    border-radius: 5px;
+    transition: background 80ms ease;
+  }
+
 /* **FORM STYLES** */
 
 .form {
@@ -42,8 +66,9 @@ html {
     width: 400px;
     padding: 15px;
     color: white;
+    font-size: 14px;
     letter-spacing: 2px;
-    font-weight: bolder;
+    font-weight: bold;
     cursor: pointer;
 }
 
@@ -69,9 +94,11 @@ hr {
     text-decoration: none;
     font-weight: bold;
     background-color: white;
+    letter-spacing: 2px;
     border: gray 2px solid;
     border-radius: 30px;
     padding: 12px 0;
+    font-size: 14px;
     width: 400px;
     text-align: center;
 }
@@ -82,8 +109,8 @@ hr {
     color: white;
 }
 
-/* **ERROR STYLES** */
-
 .error {
     color: red;
 }
+
+/* **NAV STYLES** */
