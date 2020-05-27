@@ -1,47 +1,57 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-const Login = props => {
+const initialFormValues = {
+    username: "",
+    password: "",
+  };
 
-    const { user, setUser, onChangeHandler, error } = props;
+const Login = () => {
 
-    const loginUser = () => {
-        axios.post(`https://spotsuggest.herokuapp.com/api/auth/login`)
-            .then(resolve => {
-                console.log(resolve)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
+    const [login, setLogin] = useState([]);
+    const [formValues, setFormValues] = useState(initialFormValues);
 
-    const onSubmit = event => {
-        const newUser = {
-            username: user.username,
-            password: user.password,
-        }
+    const onInputChange = (evt) => {
+        const name = evt.target.name;
+        const value = evt.target.value;
+        setFormValues({ ...formValues, [name]: value });
+      };
 
-        loginUser(newUser);
-    }
+    const onSubmit = (evt) => {
+        evt.preventDefault();
+    
+        const newLogin = {
+          username: formValues.username,
+          password: formValues.password,
+        };
+        setLogin([...login, newLogin]);
+        setFormValues(initialFormValues);
+    
+        axiosWithAuth()
+          .post("/api/auth/login", formValues)
+          .then((res) => {
+            // console.log(res.data);
+            localStorage.setItem("token", JSON.stringify(res.data.token));
+          })
+          .catch((err) => console.log({ err }));
+      };
 
     return (
         <form className="form">
-            <p className="error">{error.username}</p>
             <input type="text"
                 name="username"
                 placeholder="Username"
-                onChange={onChangeHandler}
+                onChange={onInputChange}
             //value={user.username}
             />
-            <p className="error">{error.password}</p>
             <input type="password"
                 name="password"
                 placeholder="Password"
-                onChange={onChangeHandler}
+                onChange={onInputChange}
             //value={user.password}
             />
-            <button type="submit" className="button">LOG IN</button>
+            <button type="submit" className="button" onClick={onSubmit}>LOG IN</button>
 
             <hr />
 

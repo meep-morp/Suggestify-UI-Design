@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, } from "react-router-dom";
 import "./App.css"
-import * as yup from "yup";
-import axios from "axios";
-import formSchema from "./login-signup/formScheme"
 import Login from "./login-signup/login";
 import Signup from "./login-signup/signup";
 import Nav from "./nav";
@@ -12,46 +9,9 @@ import PrivateRoute from './utils/privateRoute';
 
 /* **VARIBLES** */
 
-const login = "https://spotsuggest.herokuapp.com/api/auth/login";
-const register = "https://spotsuggest.herokuapp.com/api/auth/register";
+
 
 const App = () => {
-
-    /* **USE STATES** */
-    const [error, setError] = useState({});
-    const [user, setUser] = useState({})
-    const [userRegister, setUserRegister] = useState({});
-    const [userLogin, setUserLogin] = useState({});
-
-    /* **FUNCTIONS** */
-
-    const onChangeHandler = event => {
-        const name = event.target.name;
-        const value = event.target.value;
-
-        console.log(user)
-
-        setUser({
-            ...user,
-            [name]: value,
-        })
-
-        yup.reach(formSchema, name)
-            .validate(value)
-            .then(resolve => {
-                setError({
-                    ...error,
-                    [name]: "",
-                })
-            })
-            .catch(err => {
-                setError({
-                    ...error,
-                    [name]: err.errors[0],
-                })
-            })
-    }
-
     /* **RETURN STATEMENT AND COMPONENTS** */
 
     return (
@@ -59,19 +19,11 @@ const App = () => {
             <Nav />
             <Router>
                 <Route path="/" exact>
-                    <Login
-                        onChangeHandler={onChangeHandler}
-                        error={error}
-                        user={userLogin}
-                        setUser={setUserLogin}
-                    />
+                    <Login />
                 </Route>
                 <Route path="/signup">
                     <Signup
-                        onChangeHandler={onChangeHandler}
-                        error={error}
-                        user={setUserRegister}
-                        setUser={setUserRegister}
+                       
                     />
                 </Route>
                 {/* <PrivateRoute>

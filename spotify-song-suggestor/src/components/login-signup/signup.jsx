@@ -2,47 +2,58 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Signup = props => {
-    const { user, setUser, onChangeHandler, error } = props;
+
+const initialFormValues = {
+    username: '',
+    password: ''
+}
+
+const Signup = () => {
+    const [register, setRegister] = useState(initialFormValues);
+    
+    
+    const changeHandler = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setRegister({...register, [name]: value, })
         
-    const postNewUser = newUser => {
-        axios.post(`https://spotsuggest.herokuapp.com/api/auth/register`)
-            .then(resolve => {
-                console.log(resolve);
-                console.log(resolve.data);
-            })
-            .catch(error => {
-                console.log("Post Error\n" + error);
-            })
-    }
+      };
 
-    const onSubmit = event => {
-        const newUser = {
-            username: user.username,
-            password: user.password,
+    const submitHandler = (e) => {
+        e.preventDefault();
+        const newRegister = {
+            username: register.username,
+            password: register.password,
         }
+        console.log(newRegister)
+         //setFormValues(initialFormValues);
 
-        postNewUser(newUser);
-        setUser({});
+        //axios post the newUser to backend 
+        axios
+        .post(`https://spotsuggest.herokuapp.com/api/auth/register`, newRegister)
+            .then(res => {
+                console.log(res.config.data);
+            })
+            
     }
 
     return (
-        <form className="form">
-            <p className="error">{error.username}</p>
+        <form className="form" onSubmit={submitHandler}>
+           
             <input type="text"
                 name="username"
                 placeholder="Create Username"
-                onChange={onChangeHandler}
-            // value={user.username}
+                onChange={changeHandler}
+             value={register.username}
             />
-            <p className="error">{error.password}</p>
+           
             <input type="password"
                 name="password"
                 placeholder="Create Password"
-                onChange={onChangeHandler}
-            // value={user.password}
+                onChange={changeHandler}
+             value={register.password}
             />
-            <button type="submit" className="button">SIGN UP</button>
+            <button type="submit" className="button" onClick={submitHandler}>SIGN UP</button>
 
             <hr />
 
