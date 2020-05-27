@@ -39,7 +39,6 @@ const Login = props => {
     return (
         <form className="form">
             <h2>Log In</h2>
-
             <p className="error">{error.username}</p>
             <input type="text"
                 name="username"

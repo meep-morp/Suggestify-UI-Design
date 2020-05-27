@@ -32,10 +32,9 @@ const {user, setUser, onChangeHandler, error} = props
     }
 
     return (
-        <form className="form" onSubmit={submitHandler}>
-           <h2>Sign Up</h2>
-
-           <p className="error">{error.username}</p>
+        <form className="form">
+            <h2>Sign Up</h2>
+            <p className="error">{error.username}</p>
             <input type="text"
                 name="username"
                 placeholder="Create Username"
