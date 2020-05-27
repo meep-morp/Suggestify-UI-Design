@@ -6,7 +6,6 @@ import { checkPropTypes } from "prop-types";
 const Signup = props => {
 const {user, setUser, onChangeHandler, error} = props
 
-
     // const [register, setRegister] = useState(initialFormValues);
     // const changeHandler = (e) => {
     //     const name = e.target.name;
@@ -34,7 +33,8 @@ const {user, setUser, onChangeHandler, error} = props
 
     return (
         <form className="form" onSubmit={submitHandler}>
-           
+           <h2>Sign Up</h2>
+
            <p className="error">{error.username}</p>
             <input type="text"
                 name="username"

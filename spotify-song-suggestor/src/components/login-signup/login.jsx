@@ -27,12 +27,10 @@ const Login = props => {
             password: user.password,
         };
         setLogin([...login, newLogin]);
-        // setFormValues(initialFormValues);
 
         axiosWithAuth()
             .post("/api/auth/login", user)
             .then((res) => {
-                // console.log(res.data);
                 localStorage.setItem("token", JSON.stringify(res.data.token));
             })
             .catch((err) => console.log({ err }));
@@ -40,20 +38,22 @@ const Login = props => {
 
     return (
         <form className="form">
+            <h2>Log In</h2>
+
             <p className="error">{error.username}</p>
             <input type="text"
                 name="username"
                 placeholder="Username"
                 onChange={(event) => onChangeHandler(event, user, setUser)}
-            //value={user.username}
             />
+
             <p className="error">{error.password}</p>
             <input type="password"
                 name="password"
                 placeholder="Password"
                 onChange={(event) => onChangeHandler(event, user, setUser)}
-            //value={user.password}
             />
+
             <button type="submit" className="button" onClick={onSubmit}>LOG IN</button>
 
             <hr />
