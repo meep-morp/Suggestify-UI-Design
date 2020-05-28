@@ -36,10 +36,10 @@ const Login = props => {
             .post("/api/auth/login", user)
             .then((res) => {
                 localStorage.setItem("token", JSON.stringify(res.data.token));
-               
+                window.location = '/dashboard'
             })
             .catch((err) => console.log({ err }));
-            window.location = '/dashboard'
+            
     };
 
     return (
