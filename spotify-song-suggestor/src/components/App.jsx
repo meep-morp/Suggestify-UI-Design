@@ -8,7 +8,11 @@ import Signup from "./login-signup/signup";
 import Nav from "./nav";
 import Footer from "./footer";
 import PrivateRoute from './utils/privateRoute';
+<<<<<<< HEAD
 import Dashboard from "./dashboard/dashboard";
+=======
+import Dashboard from '../components/dashboard/dashboard';
+>>>>>>> 7c64396ff8f3014f9c91eac746657909e30d9817
 
 /* **VARIBLES** */
 const initialFormValues = {
