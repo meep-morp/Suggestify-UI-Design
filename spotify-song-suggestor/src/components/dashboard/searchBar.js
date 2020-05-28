@@ -29,7 +29,7 @@ const SearchBar = (props) => {
     }
         return(
             <div>
-                <form>
+                <form className="form searchBar">
                         <input 
                             type='text'
                             name='artist'
@@ -44,7 +44,7 @@ const SearchBar = (props) => {
                             value={search.song}
                             onChange={handleChange}
                         />
-                        <button onClick={handleSubmit}> Recomendations </button>
+                        <button onClick={handleSubmit}> SEARCH </button>
                 </form>
             </div>
         )

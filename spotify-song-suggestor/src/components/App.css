@@ -127,4 +127,32 @@ hr {
     border: solid red 1px !important;
 }
 
-/* **DASHBOARD STYLES** */
+/* **SEARCH BAR STYLES** */
+
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.searchBar input {
+    margin: 0 5px;
+    height: 20px;
+    padding: 5px;
+}
+
+.searchBar button {
+    background:#1db954;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;;
+}
+
+.searchBar button:hover {
+    background-color: #4dce7a;
+    transition: 0.2s ease;
+}
