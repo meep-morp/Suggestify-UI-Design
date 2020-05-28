@@ -9,23 +9,25 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 const initialMessage = "Search among thousands of songs";
 
 function Dashboard() {
-    const [songs, setSongs] = useState([]);
-    const [message, setMessage] = useState(initialMessage);
+  const [songs, setSongs] = useState([]);
+  const [message, setMessage] = useState(initialMessage);
 
-    useEffect(() => {
-      axiosWithAuth()
+  useEffect(() => {
+    axiosWithAuth()
       .get(`/api/songs`)
-        .then(res => {
-          setSongs(res.data)
-          setMessage("");
-        })
-    }, [])
+      .then(res => {
+        document.querySelector(".preSearch")
+          .classList.remove("preSearch");
+        setSongs(res.data)
+        setMessage("");
+      })
+  }, [])
 
-    return(
-            <div>
-                <SearchBar setSongs={setSongs} setMessage={setMessage} />
-                <SongsList songs={songs} message={message} />
-            </div>
-    )
+  return (
+    <div className="preSearch">
+      <SearchBar setSongs={setSongs} setMessage={setMessage} />
+      <SongsList songs={songs} message={message} />
+    </div>
+  )
 }
 export default Dashboard;

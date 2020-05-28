@@ -150,6 +150,7 @@ hr {
     border: none;
     padding: 10px;
     color: white;
+    letter-spacing: 2px;
     font-weight: bold;
     border-radius: 30px;;
 }
@@ -157,6 +158,19 @@ hr {
 .searchBar button:hover {
     background-color: #4dce7a;
     transition: 0.2s ease;
+}
+
+.message {
+  font-weight: bold;
+  color: rgb(161, 162, 165);
+  font-size: 2rem;
+  margin: 20px 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.preSearch {
+  height: 65vh;
 }
 
 /* **FOOTER STYLES** */
