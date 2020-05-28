@@ -12,16 +12,16 @@ function Dashboard() {
   const [songs, setSongs] = useState([]);
   const [message, setMessage] = useState(initialMessage);
 
-  useEffect(() => {
-    axiosWithAuth()
-      .get(`/api/songs`)
-      .then(res => {
-        document.querySelector(".preSearch")
-          .classList.remove("preSearch");
-        setSongs(res.data)
-        setMessage("");
-      })
-  }, [])
+  // useEffect(() => {
+  //   axiosWithAuth()
+  //     .get(`/api/songs`)
+  //     .then(res => {
+  //       document.querySelector(".preSearch")
+  //         .classList.remove("preSearch");
+  //       setSongs(res.data)
+  //       setMessage("");
+  //     })
+  // }, [])
 
   return (
     <div className="preSearch">
