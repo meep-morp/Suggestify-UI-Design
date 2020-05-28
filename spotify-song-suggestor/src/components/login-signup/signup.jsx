@@ -4,20 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { checkPropTypes } from "prop-types";
 
 const Signup = props => {
-<<<<<<< HEAD
     const { user, setUser, onChangeHandler, error } = props
-=======
-const {user, setUser, onChangeHandler, error} = props
-
-    // const [register, setRegister] = useState(initialFormValues);
-    // const changeHandler = (e) => {
-    //     const name = e.target.name;
-    //     const value = e.target.value;
-    //     setRegister({...register, [name]: value, })
-        
-    //   };
-    const push = useHistory();
->>>>>>> 7c64396ff8f3014f9c91eac746657909e30d9817
     const submitHandler = (e) => {
         e.preventDefault();
         const newRegister = {
@@ -31,14 +18,9 @@ const {user, setUser, onChangeHandler, error} = props
             .post(`https://spotsuggest.herokuapp.com/api/auth/register`, newRegister)
             .then(res => {
                 console.log(res.config.data);
-<<<<<<< HEAD
                 window.location = "/";
             })
         
-=======
-                push('/');
-            })
->>>>>>> 7c64396ff8f3014f9c91eac746657909e30d9817
     }
 
     return (

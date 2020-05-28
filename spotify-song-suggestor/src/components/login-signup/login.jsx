@@ -9,15 +9,10 @@ const initialFormValues = {
 
 const Login = props => {
     const { user, setUser, onChangeHandler, error } = props
-<<<<<<< HEAD
 
     const [login, setLogin] = useState([]); //This is a different state, Juan set this up to manage the tokens, it is different than the User State
 
     
-=======
-    const { push } = useHistory();
-    const [login, setLogin] = useState([]);
->>>>>>> 7c64396ff8f3014f9c91eac746657909e30d9817
     // const [formValues, setFormValues] = useState(initialFormValues);
 
     // const onInputChange = (evt) => {
@@ -41,11 +36,7 @@ const Login = props => {
             .post("/api/auth/login", user)
             .then((res) => {
                 localStorage.setItem("token", JSON.stringify(res.data.token));
-<<<<<<< HEAD
                
-=======
-                push('/dashboard');
->>>>>>> 7c64396ff8f3014f9c91eac746657909e30d9817
             })
             .catch((err) => console.log({ err }));
             window.location = '/dashboard'
