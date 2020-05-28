@@ -10,7 +10,9 @@ const initialFormValues = {
 const Login = props => {
     const { user, setUser, onChangeHandler, error } = props
 
-    const [login, setLogin] = useState([]);
+    const [login, setLogin] = useState([]); //This is a different state, Juan set this up to manage the tokens, it is different than the User State
+
+    
     // const [formValues, setFormValues] = useState(initialFormValues);
 
     // const onInputChange = (evt) => {
@@ -38,20 +40,18 @@ const Login = props => {
 
     return (
         <form className="form">
-            <h2>Log In</h2>
+            <h2>Welcome Back</h2>
             <div className="error">{error.username}</div>
             <input type="text"
                 name="username"
                 placeholder="Username"
-                onChange={(event) => onChangeHandler(event, user, setUser)}
-            />
+                onChange={(event) => onChangeHandler(event, user, setUser)} />
 
             <div className="error">{error.password}</div>
             <input type="password"
                 name="password"
                 placeholder="Password"
-                onChange={(event) => onChangeHandler(event, user, setUser)}
-            />
+                onChange={(event) => onChangeHandler(event, user, setUser)} />
 
             <button type="submit" className="button" onClick={onSubmit}>LOG IN</button>
 
