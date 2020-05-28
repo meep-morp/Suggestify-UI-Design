@@ -24,8 +24,9 @@ const SearchBar = (props) => {
           .post(`https://spotify-3-ds.herokuapp.com/search/${search.artist}/${search.song}`)
           .then((res) => {
               props.setSongs(res)
+              props.setMessage('');
           })
-          .catch((err) => props.setSongs('Invalid Search Try Again'));
+          .catch((err) => props.setMessage('Invalid Search Try Again'));
     }
         return(
             <div>

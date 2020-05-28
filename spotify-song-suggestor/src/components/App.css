@@ -131,6 +131,8 @@ hr {
 
 .searchBar {
     display: flex;
+    width: 99%;;
+    overflow: hidden;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -160,6 +162,7 @@ hr {
 /* **FOOTER STYLES** */
 footer {
     margin-top: 8%;
+    width: 100%;
     background: #111111;
     padding: 5% 0;
   }
