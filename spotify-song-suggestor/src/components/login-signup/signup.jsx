@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { checkPropTypes } from "prop-types";
 
 const Signup = props => {
@@ -18,8 +18,9 @@ const Signup = props => {
             .post(`https://spotsuggest.herokuapp.com/api/auth/register`, newRegister)
             .then(res => {
                 console.log(res.config.data);
+                window.location = "/";
             })
-        window.location = "/";
+        
     }
 
     return (
