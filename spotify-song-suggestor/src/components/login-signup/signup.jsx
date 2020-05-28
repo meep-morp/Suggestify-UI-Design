@@ -51,11 +51,11 @@ const Signup = props => {
                 placeholder="Create Password"
                 onChange={(event) => onChangeHandler(event, user, setUser)} />
 
-            {/* <div className="error">{error.confirmPassword}</div>
+            <div className="error">{error.confirmPassword}</div>
             <input type="password"
                 name="confirmPassword"
                 placeholder="Confirm Password"
-                onChange={(event) => onChangeHandler(event, user, setUser)} /> */}
+                onChange={(event) => onChangeHandler(event, user, setUser)} />
 
             <button type="submit" className="button" onClick={submitHandler}>SIGN UP</button>
 
