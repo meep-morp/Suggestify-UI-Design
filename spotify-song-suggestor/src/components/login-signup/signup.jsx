@@ -18,8 +18,9 @@ const Signup = props => {
             .post(`https://spotsuggest.herokuapp.com/api/auth/register`, newRegister)
             .then(res => {
                 console.log(res.config.data);
+                window.location = "/";
             })
-        window.location = "/";
+        
     }
 
     return (

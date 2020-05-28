@@ -29,13 +29,15 @@ const Login = props => {
             password: user.password,
         };
         setLogin([...login, newLogin]);
-
+        
         axiosWithAuth()
             .post("/api/auth/login", user)
             .then((res) => {
                 localStorage.setItem("token", JSON.stringify(res.data.token));
+               
             })
             .catch((err) => console.log({ err }));
+            window.location = '/dashboard'
     };
 
     return (

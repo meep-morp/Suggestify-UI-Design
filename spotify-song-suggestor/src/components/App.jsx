@@ -8,6 +8,7 @@ import Signup from "./login-signup/signup";
 import Nav from "./nav";
 import Footer from "./footer";
 import PrivateRoute from './utils/privateRoute';
+import Dashboard from "./dashboard/dashboard";
 
 /* **VARIBLES** */
 const initialFormValues = {
@@ -73,9 +74,9 @@ const App = () => {
                         error={error}
                     />
                 </Route>
-                {/* <PrivateRoute>
-                
-                </PrivateRoute> */}
+                <PrivateRoute path='/dashboard'>
+                    <Dashboard />
+                </PrivateRoute>
             </Router>
 
             <Footer />
