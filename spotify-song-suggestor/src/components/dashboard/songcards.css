@@ -1,0 +1,42 @@
+.cardContainer{
+    width: fit-content;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+.song{
+    
+    background-color: black;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 1em;
+    border-radius: 1›em;
+}
+.sImg{
+    max-width: 50%;
+    padding: 1em;
+}
+.sImg img{
+    width: 100%;
+    margin: 0 auto;
+}
+.sInfo{
+    color: white;
+    margin-left: 2em;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.sInfo h2{
+    color: #1DB954;
+    border-bottom: #1DB954 2px solid;
+    width: 50%;
+}
+.sInfo p{
+    width: fit-content;
+}
