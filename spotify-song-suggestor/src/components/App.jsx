@@ -26,6 +26,7 @@ const App = () => {
     const onChangeHandler = (event, user, setUser) => {
         const name = event.target.name;
         const value = event.target.value;
+        const target = event.target;
 
         setUser({
             ...user,
@@ -35,12 +36,14 @@ const App = () => {
         yup.reach(formSchema, name)
             .validate(value)
             .then(resolve => {
+                target.classList.remove("errorInput");
                 setError({
                     ...error,
                     [name]: "",
                 })
             })
             .catch(err => {
+                target.classList.add("errorInput");
                 setError({
                     ...error,
                     [name]: err.errors[0],

@@ -24,7 +24,7 @@ const Signup = props => {
 
     return (
         <form className="form">
-            <h2>Sign Up</h2>
+            <h2>Become A Member</h2>
 
             <div className="error">{error.last_name}</div>
             <div className="error">{error.first_name}</div>
