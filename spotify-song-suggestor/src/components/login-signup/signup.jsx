@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { checkPropTypes } from "prop-types";
 
 const Signup = props => {
@@ -13,7 +13,7 @@ const {user, setUser, onChangeHandler, error} = props
     //     setRegister({...register, [name]: value, })
         
     //   };
-
+    const push = useHistory();
     const submitHandler = (e) => {
         e.preventDefault();
         const newRegister = {
@@ -27,8 +27,8 @@ const {user, setUser, onChangeHandler, error} = props
         .post(`https://spotsuggest.herokuapp.com/api/auth/register`, newRegister)
             .then(res => {
                 console.log(res.config.data);
+                push('/');
             })
-        window.location = "/";
     }
 
     return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const initialFormValues = {
@@ -9,7 +9,7 @@ const initialFormValues = {
 
 const Login = props => {
     const { user, setUser, onChangeHandler, error } = props
-
+    const { push } = useHistory();
     const [login, setLogin] = useState([]);
     // const [formValues, setFormValues] = useState(initialFormValues);
 
@@ -18,6 +18,8 @@ const Login = props => {
     //     const value = evt.target.value;
     //     setFormValues({ ...formValues, [name]: value });
     //   };
+
+    
 
     const onSubmit = (evt) => {
         evt.preventDefault();
@@ -32,6 +34,7 @@ const Login = props => {
             .post("/api/auth/login", user)
             .then((res) => {
                 localStorage.setItem("token", JSON.stringify(res.data.token));
+                push('/dashboard');
             })
             .catch((err) => console.log({ err }));
     };
