@@ -10,6 +10,7 @@ const Signup = props => {
         const newRegister = {
             username: user.username,
             password: user.password,
+            name: `${user.first_name} ${user.last_name}`,
         }
         console.log(newRegister)
         //axios post the newUser to backend 
@@ -51,11 +52,11 @@ const Signup = props => {
                 placeholder="Create Password"
                 onChange={(event) => onChangeHandler(event, user, setUser)} />
 
-            <div className="error">{error.confirmPassword}</div>
+            {/* <div className="error">{error.confirmPassword}</div>
             <input type="password"
                 name="confirmPassword"
                 placeholder="Confirm Password"
-                onChange={(event) => onChangeHandler(event, user, setUser)} />
+                onChange={(event) => onChangeHandler(event, user, setUser)} /> */}
 
             <button type="submit" className="button" onClick={submitHandler}>SIGN UP</button>
 
