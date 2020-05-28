@@ -12,7 +12,6 @@ const Signup = props => {
             password: user.password,
         }
         console.log(newRegister)
-        //setFormValues(initialFormValues);
         //axios post the newUser to backend 
         axios
             .post(`https://spotsuggest.herokuapp.com/api/auth/register`, newRegister)
@@ -32,31 +31,32 @@ const Signup = props => {
                 <input type="text"
                     name="first_name"
                     placeholder="First Name"
-                    onChange={(event) => onChangeHandler(event, user, setUser)}
-                />
+                    onChange={(event) => onChangeHandler(event, user, setUser)} />
 
                 <input type="text"
                     name="last_name"
                     placeholder="Last Name"
-                    onChange={(event) => onChangeHandler(event, user, setUser)}
-                />
+                    onChange={(event) => onChangeHandler(event, user, setUser)} />
             </div>
 
             <div className="error">{error.username}</div>
             <input type="text"
                 name="username"
                 placeholder="Create Username"
-                onChange={(event) => onChangeHandler(event, user, setUser)}
-            // value={register.username}
-            />
+                onChange={(event) => onChangeHandler(event, user, setUser)} />
 
             <div className="error">{error.password}</div>
             <input type="password"
                 name="password"
                 placeholder="Create Password"
-                onChange={(event) => onChangeHandler(event, user, setUser)}
-            // value={register.password}
-            />
+                onChange={(event) => onChangeHandler(event, user, setUser)} />
+
+            {/* <div className="error">{error.confirmPassword}</div>
+            <input type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                onChange={(event) => onChangeHandler(event, user, setUser)} /> */}
+
             <button type="submit" className="button" onClick={submitHandler}>SIGN UP</button>
 
             <hr />

@@ -13,7 +13,12 @@ const formShema = yup.object().shape({
 	password: yup
 		.string()
 		.required("Please enter your password")
-		.min(5, "Please enter a password that is 5 characters or more"),
+        .min(5, "Please enter a password that is 5 characters or more"),
+        
+    // confirmPassword: yup
+    //     .string()
+    //     .oneOf([yup.ref("password"), null], "Passwords must match")
+    //     .required("Please confirm your password"),
 });
 
 export default formShema;
