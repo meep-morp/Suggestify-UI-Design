@@ -227,7 +227,8 @@ hr {
   margin: 0 20px;
 }
 
-.savedSong {
+.savedSong{
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

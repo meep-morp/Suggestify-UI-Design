@@ -36,9 +36,8 @@ const SavedSongs = props => {
                     ? <h2>Save songs to listen again and again</h2>
                     : savedSongs.map(song => (
                         <div className="savedSong">
-                            <p>{song.title}</p>
-                            <p>{song.album_title}</p>
-                            <p className="artist">{song.artist}</p>
+                                <p>{song.title}</p>
+                                <p className="artist">{song.artist}</p>
                         </div>
                     ))}
             </div>
