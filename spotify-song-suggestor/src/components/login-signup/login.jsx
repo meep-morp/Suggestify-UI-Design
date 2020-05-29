@@ -13,6 +13,7 @@ const Login = props => {
     const [login, setLogin] = useState([]); //This is a different state, Juan set this up to manage the tokens, it is different than the User State
     const [message, setMessage] = useState("");
 
+    const { push } = useHistory();
     // const [formValues, setFormValues] = useState(initialFormValues);
 
     // const onInputChange = (evt) => {
@@ -37,6 +38,7 @@ const Login = props => {
             .then((res) => {
                 localStorage.setItem("token", JSON.stringify(res.data.token));
                 localStorage.setItem('User Id', res.data.user.id )
+                push('/dashboard/search')
             })
             .catch((err) => setMessage("Incorrect Username or Password"));
     };
