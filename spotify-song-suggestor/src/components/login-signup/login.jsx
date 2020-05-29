@@ -11,8 +11,8 @@ const Login = props => {
     const { user, setUser, onChangeHandler, error } = props
 
     const [login, setLogin] = useState([]); //This is a different state, Juan set this up to manage the tokens, it is different than the User State
+    const [message, setMessage] = useState("");
 
-    
     // const [formValues, setFormValues] = useState(initialFormValues);
 
     // const onInputChange = (evt) => {
@@ -21,7 +21,7 @@ const Login = props => {
     //     setFormValues({ ...formValues, [name]: value });
     //   };
 
-    
+
 
     const onSubmit = (evt) => {
         evt.preventDefault();
@@ -31,20 +31,20 @@ const Login = props => {
             password: user.password,
         };
         setLogin([...login, newLogin]);
-        
+
         axiosWithAuth()
             .post("/api/auth/login", user)
             .then((res) => {
                 localStorage.setItem("token", JSON.stringify(res.data.token));
-                window.location = '/dashboard'
+                window.location = '/dashboard/search'
             })
-            .catch((err) => console.log({ err }));
-            
+            .catch((err) => setMessage("Incorrect Username or Password"));
     };
 
     return (
         <form className="form">
             <h2>Welcome Back</h2>
+            <div className="error">{message}</div>
             <div className="error">{error.username}</div>
             <input type="text"
                 name="username"

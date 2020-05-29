@@ -25,9 +25,9 @@ const SearchBar = props => {
 				`https://spotify-3-ds.herokuapp.com/search/${search.artist}/${search.song}`
 			)
 			.then(res => {
-				document.querySelector(".songList").classList.remove("songList");
-				props.setSongs(res);
-				props.setMessage("");
+				console.log(res.data);
+				props.setSongs(res.data);
+				document.querySelector(".preSearch").classList.remove("preSearch");
 			})
 			.catch(err => props.setMessage("No results found."));
 	};

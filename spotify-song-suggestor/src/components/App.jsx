@@ -10,6 +10,7 @@ import Footer from "./footer";
 import PrivateRoute from './utils/privateRoute';
 import Dashboard from "./dashboard/dashboard";
 
+
 /* **VARIBLES** */
 const initialFormValues = {
     username: '',
@@ -17,7 +18,7 @@ const initialFormValues = {
 }
 
 const App = () => {
-    /* **USE STATESs** */
+    /* **USE STATES** */
     const [register, setRegister] = useState(initialFormValues);
     const [login, setLogin] = useState(initialFormValues);
     const [error, setError] = useState({});
@@ -68,17 +69,16 @@ const App = () => {
                 </Route>
                 <Route path="/signup">
                     <Signup
-                    onChangeHandler={onChangeHandler}
+                        onChangeHandler={onChangeHandler}
                         user={register}
                         setUser={setRegister}
                         error={error}
                     />
                 </Route>
-                <PrivateRoute path='/dashboard'>
+                <PrivateRoute path="/dashboard">
                     <Dashboard />
                 </PrivateRoute>
             </Router>
-
             <Footer />
         </div>
     )
