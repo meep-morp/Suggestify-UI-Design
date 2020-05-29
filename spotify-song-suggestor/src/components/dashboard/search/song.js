@@ -40,7 +40,7 @@ const Song = (props) => {
                     <p>{props.song.artist}</p>
                 </div>
                 <div>
-                    <button onClick={() => saveSong(props.song)}>SAVE</button>
+                    <button className="saveButton" onClick={() => saveSong(props.song)}>SAVE</button>
                 </div>
             </div>
         </div>
