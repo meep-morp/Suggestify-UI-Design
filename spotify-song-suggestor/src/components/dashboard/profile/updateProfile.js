@@ -3,18 +3,21 @@ import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { useParams, useHistory } from 'react-router-dom';
 
 const UpdateForm = props => {
-    const [profile, setProfile] = useState();
+    const [profile, setProfile] = useState({name: '', username: '', password: ''});
     const { id } = useParams();
     const { push } = useHistory();
 
     useEffect(() => {
         axiosWithAuth()
-            .get(`api/auth/${id}`)
+            .get(`api/auth/${localStorage.getItem('User Id')}`)
             .then(res => {
+                console.log(res.data)
                 setProfile(res.data)
             })
     }, [id])
 
+    console.log(profile);
+    
     const handleChange = e => {
         e.persist();
         setProfile({
@@ -25,11 +28,15 @@ const UpdateForm = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        const newProfile = {
+            name: profile.name,
+            username: profile.username
+        }
         axiosWithAuth()
-            .put(`api/auth/${id}`, profile)
+            .patch(`api/auth/${localStorage.getItem('User Id')}`, newProfile)
             .then(res => {
                 console.log(res)
-                push('/dashboard/profile/:id')
+                push(`/dashboard/profile/${localStorage.getItem('User Id')}`)
             })
     }
 
@@ -39,16 +46,10 @@ const UpdateForm = props => {
             <form>
                 <div className="name">
                     <input type="text"
-                        name="first_name"
-                        placeholder="Update First Name"
+                        name="name"
+                        placeholder="Update Name"
                         onChange={handleChange}
-                        value={profile.first_name} />
-
-                    <input type="text"
-                        name="last_name"
-                        placeholder="Update Last Name"
-                        onChange={handleChange}
-                        value={profile.last_name} />
+                        value={profile.name} />
                 </div>
 
                 <input type="text"
@@ -57,11 +58,6 @@ const UpdateForm = props => {
                     onChange={handleChange}
                     value={profile.username} />
 
-                <input type="password"
-                    name="password"
-                    placeholder="Update Password"
-                    onChange={handleChange}
-                    value={profile.password} />
                 <button onClick={handleSubmit}>UPDATE PROFILE</button>
             </form>
         </div>

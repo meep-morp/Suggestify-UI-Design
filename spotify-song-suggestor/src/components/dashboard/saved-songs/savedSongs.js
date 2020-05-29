@@ -6,12 +6,13 @@ import { useParams } from 'react-router-dom';
 
 function SavedSongs(props) {
     const [savedSongs, setSavedSongs] = useState([]);
+    // const params = useParams('/')
     const { id } = useParams();
 
     
     useEffect(() => {
         axiosWithAuth()
-            .get(`api/songs/save/${id}`)
+            .get(`api/songs/save/${localStorage.getItem('User Id')}`)
             .then(res => {
                 setSavedSongs(res.data)
             })

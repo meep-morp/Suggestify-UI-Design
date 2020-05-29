@@ -21,10 +21,10 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <DashNav />
-      <PrivateRoute path="/dashboard/profile">
+      <PrivateRoute path="/dashboard/profile/:id">
         <MyProfile />
       </PrivateRoute>
-      <PrivateRoute path='/dashboard/update-profile/:id'>
+      <PrivateRoute path={`/dashboard/update-profile/${localStorage.getItem('User Id')}`}>
         <UpdateForm />
       </PrivateRoute>
 
@@ -35,7 +35,7 @@ function Dashboard() {
         </div>
       </PrivateRoute>
       
-      <PrivateRoute path='/dashboard/save/'>
+      <PrivateRoute path='/dashboard/save/:id'>
         <SavedSongs />
       </PrivateRoute>
     </div>

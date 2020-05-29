@@ -5,13 +5,14 @@ import { useParams, useHistory } from 'react-router-dom';
 const Song = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
+    console.log(props)
 
     const saveSong = song => {
         axiosWithAuth()
-            .post(`api/songs/save/${id}`, song)
+            .post(`api/songs/save/${localStorage.getItem('User Id')}`, song)
             .then(res => {
                 console.log(`Post was susccesful: ${res}`);
-                push('/dashboard/save/')
+                push(`/dashboard/save/${localStorage.getItem('User Id')}`)
             })
             .catch(err => {
                 console.log(err)
