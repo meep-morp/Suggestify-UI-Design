@@ -6,6 +6,7 @@ const DashNav = props => {
             <a href="/dashboard/profile">My Profile</a>
             <span>|</span>
             <a href="/dashboard/search">Search Songs</a>
+            <a href="/dashboard/savedsongs">My Songs</a>
             <a className="signOut" href="/">Sign Out</a>
         </nav>
     )
