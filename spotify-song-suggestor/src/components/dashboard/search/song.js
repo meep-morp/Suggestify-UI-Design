@@ -1,6 +1,23 @@
 import React from 'react';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import { useParams, useHistory } from 'react-router-dom';
 
 const Song = (props) => {
+    const { id } = useParams();
+    const { push } = useHistory();
+
+    const saveSong = song => {
+        axiosWithAuth()
+            .post(`api/songs/save/${id}`, song)
+            .then(res => {
+                console.log(`Post was susccesful: ${res}`);
+                push('/dashboard/save/')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
     return(
         <div className='song'>
             <div className='sImg'>
@@ -21,7 +38,9 @@ const Song = (props) => {
                     <h2>Artist </h2>
                     <p>{props.song.artist}</p>
                 </div>
-                
+                <div>
+                    <button onClick={() => saveSong(props.song)}>SAVE</button>
+                </div>
             </div>
         </div>
     )

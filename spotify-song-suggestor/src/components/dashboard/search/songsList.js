@@ -6,6 +6,7 @@ import './songcards.css';
 
 const SongsList = (props) => {
     console.log(props.songs)
+
     return (
         <div>
             <div className="message">{props.message}</div>
@@ -17,4 +18,4 @@ const SongsList = (props) => {
         </div>
     )
 }
-export default SongsList;
+export default SongsList; 
