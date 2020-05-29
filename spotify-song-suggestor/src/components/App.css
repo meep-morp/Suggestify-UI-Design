@@ -34,6 +34,11 @@ nav a {
     width: 99vw;
   }
 
+  .signOut {
+    color: rgb(240, 96, 96);
+    font-weight: 600;
+  }
+
 /* **FORM STYLES** */
 
 .form {
@@ -194,10 +199,17 @@ hr {
   height: 65vh;
 }
 
+#igraph {
+  height: 100%;
+  width: 80%;
+  border: none;
+}
+
 /* **SAVED STYLES** */
 
 .profile {
   text-align: center;
+  height: 75vh;
 }
 
 .title {
