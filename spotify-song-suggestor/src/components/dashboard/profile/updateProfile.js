@@ -43,9 +43,10 @@ const UpdateForm = props => {
     return(
         <div>
             <h2>Update Profile</h2>
-            <form>
+            <form className="form">
                 <div className="name">
                     <input type="text"
+                    className="username"
                         name="name"
                         placeholder="Update Name"
                         onChange={handleChange}
@@ -58,7 +59,7 @@ const UpdateForm = props => {
                     onChange={handleChange}
                     value={profile.username} />
 
-                <button onClick={handleSubmit}>UPDATE PROFILE</button>
+                <button className="button" onClick={handleSubmit}>UPDATE</button>
             </form>
         </div>
     )

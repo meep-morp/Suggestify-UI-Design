@@ -36,10 +36,10 @@ const MyProfile = props => {
     }
 
     return (
-        <div>
-            <h2>{greet}, {profile.name}</h2>
-            <p>{profile.username}</p>
-            <button onClick={updateProfile}>Update Profile</button>
+        <div className="profile">
+            <p className="greet">{greet}, {profile.name}</p>
+            <p className="username">{profile.username}</p>
+            <button className="button" onClick={updateProfile}>SETTINGS</button>
         </div>
     )
 }

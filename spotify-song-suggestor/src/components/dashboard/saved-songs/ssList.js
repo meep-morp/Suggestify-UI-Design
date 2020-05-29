@@ -21,10 +21,18 @@ const SavedList = (props) => {
     }
 
     return(
-        <div>
-            {props.songs.map((song, id) => {
+        <div className="savedSongs container">
+             <h2 className="title">SAVED SONGS</h2>
+            <div className="legend">
+                <p>TITLE</p>
+                <p>ALBUM</p>
+                <p>ARTIST</p>
+            </div>
+            {props.songs === [] || props.songs === undefined ?
+            <h2>Save songs to listen again and again</h2> :
+            props.songs.map((song, id) => {
                 return (
-                    <div className='song'>
+                    <div className='savedSongs'>
                     <div className='sImg'>
                         <img src={song.album_art} />
                     </div>
