@@ -15,7 +15,7 @@ const id = useParams;
 
 const MyProfile = props => {
     const date = new Date();
-    const time = date.getHours();
+    const time = (date.getHours());
     const [greet, setGreet] = useState("");
     const [savedSongs, setSavedSongs] = useState([]);
 
@@ -25,7 +25,7 @@ const MyProfile = props => {
         } else if (time < 12) {
             setGreet("Good Morning");
         }
-    }, [])
+    }, []);
 
     const [user, setUser] = useState({});
     return (
