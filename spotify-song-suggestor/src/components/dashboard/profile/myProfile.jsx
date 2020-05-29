@@ -7,6 +7,11 @@ const MyProfile = props => {
     const { id } = useParams();
     const { push } = useHistory();
 
+    const date = new Date();
+    const time = date.getHours();
+    const [greet, setGreet] = useState("");
+    const [savedSongs, setSavedSongs] = useState([]);
+
     useEffect(() => {
         axiosWithAuth()
             .get(`api/auth/${id}`)
@@ -15,13 +20,21 @@ const MyProfile = props => {
             })
     }, [id])
 
+    useEffect(() => {
+        if (time > 12) {
+            setGreet("Good Afternoon");
+        } else if (time < 12) {
+            setGreet("Good Morning");
+        }
+    }, [])
+
     const updateProfile = e => {
         push('/dashboard/update-profile/:id')
     }
 
     return (
         <div>
-            <h2>Welcome Back, User</h2>
+            <h2>{greet}, User</h2>
             <button onClick={updateProfile}>Update Profile</button>
         </div>
     )
