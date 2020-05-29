@@ -19,13 +19,15 @@ const SearchBar = props => {
 	};
 
 	const handleSubmit = e => {
+		props.setMessage("Loading...");
 		e.preventDefault();
+
 		axios
 			.post(
 				`https://spotify-3-ds.herokuapp.com/search/${search.artist}/${search.song}`
 			)
 			.then(res => {
-				console.log(res.data);
+                props.setMessage("");
 				props.setSongs(res.data);
 				document.querySelector(".preSearch").classList.remove("preSearch");
 				props.setMessage('');
