@@ -133,6 +133,21 @@ hr {
     border: solid red 1px !important;
 }
 
+.saveButton {
+  background: #1db954;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.saveButton:hover {
+  background-color: #4dce7a;
+  transition: 0.2s ease;
+}
+
 /* **SEARCH BAR STYLES** */
 
 .searchBar {
@@ -252,6 +267,19 @@ hr {
   width: 50%;
   height: auto;
   border-radius: 20px;
+}
+
+/* **PROFILE STYLES** */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile button {
+  width: 200px;
 }
 
 /* **FOOTER STYLES** */
