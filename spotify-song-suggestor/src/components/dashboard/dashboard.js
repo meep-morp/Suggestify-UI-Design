@@ -6,6 +6,7 @@ import SongsList from './songsList';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import MyProfile from './myProfile';
 import { useParams } from 'react-router-dom';
+import DashNav from './dashNav';
 
 // const url = `https://spotify-3-ds.herokuapp.com/search/${search.artist}/${search.song}`;
 const initialMessage = "Search among thousands of songs";
@@ -29,6 +30,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
+      <DashNav />
       <PrivateRoute path="/dashboard/profile">
         <MyProfile savedSongs={savedSongs} setSavedSongs={setSavedSongs} />
       </PrivateRoute>

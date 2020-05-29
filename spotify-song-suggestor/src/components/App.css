@@ -28,6 +28,12 @@ nav a {
     transition: background 80ms ease;
   }
 
+  .dashNav {
+    position: fixed;
+    top: 0;
+    width: 99vw;
+  }
+
 /* **FORM STYLES** */
 
 .form {
