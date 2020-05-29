@@ -6,7 +6,7 @@ const DashNav = props => {
             <a href={`/dashboard/profile/${localStorage.getItem('User Id')}`}>My Profile</a>
             <span>|</span>
             <a href="/dashboard/search">Search Songs</a>
-            <a href={`/dashboard/saved/${localStorage.getItem('User Id')}`}>My Songs</a>
+            <a href={`/dashboard/save/${localStorage.getItem('User Id')}`}>My Songs</a>
             <a className="signOut" href="/">Sign Out</a>
         </nav>
     )
