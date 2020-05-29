@@ -28,6 +28,12 @@ nav a {
     transition: background 80ms ease;
   }
 
+  .dashNav {
+    position: fixed;
+    top: 0;
+    width: 99vw;
+  }
+
 /* **FORM STYLES** */
 
 .form {
@@ -171,6 +177,46 @@ hr {
 
 .preSearch {
   height: 65vh;
+}
+
+/* **SAVED STYLES** */
+
+.profile {
+  text-align: center;
+}
+
+.savedSongs {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.savedSong {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  background-color: #111111;
+  border-top: gray solid 1px;
+  border-bottom: gray solid 1px;
+  width: 80%;
+  height: 100px;
+  color: white;
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+
+.savedSong p {
+  margin:0 20px;
+}
+
+.savedSong img{
+  width: 50%;
+  height: auto;
+  border-radius: 20px;
 }
 
 /* **FOOTER STYLES** */

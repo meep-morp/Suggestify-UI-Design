@@ -6,6 +6,7 @@ import SongsList from './songsList';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import MyProfile from './myProfile';
 import { useParams } from 'react-router-dom';
+import DashNav from './dashNav';
 
 // const url = `https://spotify-3-ds.herokuapp.com/search/${search.artist}/${search.song}`;
 const initialMessage = "Search among thousands of songs";
@@ -15,6 +16,7 @@ function Dashboard() {
   const [message, setMessage] = useState(initialMessage);
 
   // useEffect(() => {
+  //   setMessage("Loading...");
   //   axiosWithAuth()
   //     .get(`/api/songs`)
   //     .then(res => {
@@ -27,7 +29,8 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <PrivateRoute path="/dashboard/profile/:id">
+      <DashNav />
+      <PrivateRoute path="/dashboard/profile">
         <MyProfile />
       </PrivateRoute>
       <PrivateRoute path="/dashboard/search">

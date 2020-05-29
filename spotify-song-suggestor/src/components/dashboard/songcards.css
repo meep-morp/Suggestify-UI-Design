@@ -40,3 +40,18 @@
 .sInfo p{
     width: fit-content;
 }
+
+.saveButton {
+    background: #1db954;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.saveButton:hover {
+    background-color: #4dce7a;
+    transition: 0.2s ease;
+}
