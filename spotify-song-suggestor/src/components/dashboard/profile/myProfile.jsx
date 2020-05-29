@@ -22,7 +22,7 @@ const MyProfile = props => {
     }, [id])
 
     useEffect(() => {
-        if (time > 12) {
+        if (time >= 12) {
             setGreet("Good Afternoon");
         } else if (time < 12) {
             setGreet("Good Morning");
