@@ -5,9 +5,6 @@ import Song from './song';
 import './songcards.css';
 
 const SongsList = (props) => {
-    let src = "src=";
-    let length = "https://plotly.com/~mherbert93/1.embed".length;
-
     const convertToElement = (elmnt) => {
         const dom = document.createElement("div");
 

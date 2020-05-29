@@ -5,9 +5,9 @@ const Footer = props => {
         <footer>
             <div className="footer-wrapper">
                 <div className="footer-section">
-                    <h3>Spotify Song Suggester</h3>
-                    <p>Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Nulla.</p>
+                    <h3>Suggestify</h3>
+                    <p>Find and visualize songs
+                        that fit your personal taste.</p>
                     <button>Try it out</button>
                 </div>
 
