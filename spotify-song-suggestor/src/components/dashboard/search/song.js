@@ -1,19 +1,24 @@
 import React from 'react';
-import axios from 'axios';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import { useParams, useHistory } from 'react-router-dom';
 
 const Song = (props) => {
+    const { id } = useParams();
+    const { push } = useHistory();
 
-    const onSave = event => {
-        axios.post(`https://spotsuggest.herokuapp.com/save/${props.song.song_id}`)
-            .then(response => {
-                console.log(response);
+    const saveSong = song => {
+        axiosWithAuth()
+            .post(`api/songs/save/${id}`, song)
+            .then(res => {
+                console.log(`Post was susccesful: ${res}`);
+                push('/dashboard/save/')
             })
-            .catch(error => {
-                console.log(error);
+            .catch(err => {
+                console.log(err)
             })
     }
 
-    return (
+    return(
         <div className='song'>
             <div className='sImg'>
                 <img src={props.song.album_art} />
@@ -33,8 +38,8 @@ const Song = (props) => {
                     <h2>Artist </h2>
                     <p>{props.song.artist}</p>
                 </div>
-                <div className="save">
-                    <button className="saveButton" onClick={onSave}>SAVE</button>
+                <div>
+                    <button onClick={() => saveSong(props.song)}>SAVE</button>
                 </div>
             </div>
         </div>

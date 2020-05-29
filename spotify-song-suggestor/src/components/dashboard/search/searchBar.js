@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import axios from "axios";
-// import { axiosWithAuthDS } from '../utils/axiosWithAuthDS';
+
 
 const initialSearch = {
 	artist: "",
@@ -30,6 +30,7 @@ const SearchBar = props => {
                 props.setMessage("");
 				props.setSongs(res.data);
 				document.querySelector(".preSearch").classList.remove("preSearch");
+				props.setMessage('');
 			})
 			.catch(err => props.setMessage("No results found."));
 	};
