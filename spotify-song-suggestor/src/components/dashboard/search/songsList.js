@@ -24,14 +24,12 @@ const SongsList = (props) => {
                 {props.songs.map((song, id) => (
                     (id === props.songs.length - 1)
                         ? <div className="iframeContainer">
-                            {
-                            console.log(song.iframe.slice(song.iframe.slice(song.iframe.indexOf(src), length)))
-                            }
-                            {/* <iframe
-                            src={() => {
-                                const str = song.iframe.slice(song.iframe.indexOf(src) + src.length);
-                               console.log (str.slice(song.iframe.indexOf(src) + src.length))
-                            }}></iframe> */}
+                            <iframe
+                                src={song.iframe}
+                                className="igraph"
+                                scrolling="none"
+                            >
+                            </iframe>
                         </div> :
                         <Song key={id} song={song} />
                 ))}

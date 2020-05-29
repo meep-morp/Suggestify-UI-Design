@@ -199,9 +199,9 @@ hr {
   height: 65vh;
 }
 
-#igraph {
-  height: 100%;
-  width: 80%;
+.igraph {
+  height: 100vh;
+  width: 100%;
   border: none;
 }
 
