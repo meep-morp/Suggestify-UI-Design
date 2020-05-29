@@ -14,8 +14,6 @@ const SavedSongs = props => {
             })
     }, [])
 
-    const id = useParams();
-
     // axiosWithAuth().get(`https://spotsuggest.herokuapp.com/save/${id}`)
     //     .then(response => {
     //         console.log(response);
@@ -27,15 +25,24 @@ const SavedSongs = props => {
     //     })
 
     return (
-        <div className="savedSongs">
-            {savedSongs === [] || !savedSongs
-                ? <h2>Save songs to listen again and again</h2>
-                : savedSongs.map(song => (
-                    <div className="savedSong">
+        <div className="container">
+            <h2 className="title">SAVED SONGS</h2>
+            <div className="legend">
+                <p>TITLE</p>
+                <p>ARTIST</p>
+            </div>
+            <div className="savedSongs">
+                {savedSongs === [] || !savedSongs
+                    ? <h2>Save songs to listen again and again</h2>
+                    : savedSongs.map(song => (
+                        <div className="savedSong">
                             <p>{song.title}</p>
+                            <p>{song.album_title}</p>
                             <p className="artist">{song.artist}</p>
-                    </div>
-                ))}
+                        </div>
+                    ))}
+            </div>
+
         </div>
     )
 }

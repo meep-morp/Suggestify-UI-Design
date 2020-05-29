@@ -185,6 +185,24 @@ hr {
   text-align: center;
 }
 
+.title {
+  letter-spacing: 2px;;
+  margin: 0;
+  width: 80%;
+  padding: 10px 0;
+  border-bottom: gray 1px solid;
+  font-size: 20px;
+  background-color: #111111;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .savedSongs {
   text-align: center;
   display: flex;
@@ -192,6 +210,23 @@ hr {
   align-items: center;
   flex-wrap: wrap;
 }
+
+.legend{
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 10px 0;
+  background-color: #111111;
+  color: #FFFFFF;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.legend p {
+  margin: 0 20px;
+}
+
 .savedSong {
   display: flex;
   flex-direction: row;
