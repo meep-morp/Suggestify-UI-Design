@@ -14,25 +14,24 @@ const initialMessage = "Search among thousands of songs";
 function Dashboard() {
   const [songs, setSongs] = useState([]);
   const [message, setMessage] = useState(initialMessage);
-  const [savedSongs, setSavedSongs] = useState({});
 
-  useEffect(() => {
-    setMessage("Loading...");
-    axiosWithAuth()
-      .get(`/api/songs`)
-      .then(res => {
-        document.querySelector(".preSearch")
-          .classList.remove("preSearch");
-        setSongs(res.data)
-        setMessage("");
-      })
-  }, [])
+  // useEffect(() => {
+  //   setMessage("Loading...");
+  //   axiosWithAuth()
+  //     .get(`/api/songs`)
+  //     .then(res => {
+  //       document.querySelector(".preSearch")
+  //         .classList.remove("preSearch");
+  //       setSongs(res.data)
+  //       setMessage("");
+  //     })
+  // }, [])
 
   return (
     <div className="dashboard">
       <DashNav />
       <PrivateRoute path="/dashboard/profile">
-        <MyProfile savedSongs={savedSongs} setSavedSongs={setSavedSongs} />
+        <MyProfile />
       </PrivateRoute>
       <PrivateRoute path="/dashboard/search">
         <div className="preSearch">

@@ -14,11 +14,11 @@ import SavedSongs from "./savedSongs";
 const id = useParams;
 
 const MyProfile = props => {
-    const { setSavedSongs, savedSongs } = props;
+    const [savedSongs, setSavedSongs] = useState([]);
 
     const [user, setUser] = useState({});
     return (
-        <div>
+        <div className="profile">
             <h2>Welcome Back, {user.name}</h2>
             <SavedSongs savedSongs={savedSongs} setSavedSongs={setSavedSongs} />
         </div>
