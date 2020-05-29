@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useParams } from "react-router-dom";
 import SavedSongs from "./savedSongs";
@@ -14,12 +14,23 @@ import SavedSongs from "./savedSongs";
 const id = useParams;
 
 const MyProfile = props => {
+    const date = new Date();
+    const time = date.getHours();
+    const [greet, setGreet] = useState("");
     const [savedSongs, setSavedSongs] = useState([]);
+
+    useEffect(() => {
+        if (time > 12) {
+            setGreet("Good Afternoon");
+        } else if (time < 12) {
+            setGreet("Good Morning");
+        }
+    }, [])
 
     const [user, setUser] = useState({});
     return (
         <div className="profile">
-            <h2>Welcome Back, {user.name}</h2>
+            <h2>{greet}, {user.name}</h2>
             <SavedSongs savedSongs={savedSongs} setSavedSongs={setSavedSongs} />
         </div>
     )
