@@ -36,7 +36,7 @@ const Login = props => {
             .post("/api/auth/login", user)
             .then((res) => {
                 localStorage.setItem("token", JSON.stringify(res.data.token));
-                window.location = '/dashboard/search'
+                window.location = '/dashboard/profile'
             })
             .catch((err) => setMessage("Incorrect Username or Password"));
     };
