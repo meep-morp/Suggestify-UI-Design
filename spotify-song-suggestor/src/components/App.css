@@ -238,7 +238,7 @@ hr {
   color: white;
 }
 
-.dashboard {
+.container {
   height: 75vh;
   display: flex;
   flex-direction: column;
@@ -285,6 +285,19 @@ hr {
   color: white;
   font-weight: 200;
   font-size: 1.2rem;
+}
+
+.space {
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.delete {
+  cursor: pointer;
+  background: transparent;
+  color: red;
+  border: none;
 }
 
 .savedSong p {
