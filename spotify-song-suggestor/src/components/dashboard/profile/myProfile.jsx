@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { useParams, useHistory } from "react-router-dom";
+import SavedSongs from "../saved-songs/savedSongs";
 
 const MyProfile = props => {
     const [profile, setProfile] = useState();
@@ -21,7 +22,7 @@ const MyProfile = props => {
     }, [id])
 
     useEffect(() => {
-        if (time > 12) {
+        if (time >= 12) {
             setGreet("Good Afternoon");
         } else if (time < 12) {
             setGreet("Good Morning");
@@ -33,9 +34,10 @@ const MyProfile = props => {
     }
 
     return (
-        <div>
+        <div className="profile">
             <h2>{greet}, User</h2>
-            <button onClick={updateProfile}>Update Profile</button>
+            <button className="button" onClick={updateProfile}>SETTINGS</button>
+            <SavedSongs />
         </div>
     )
 }
