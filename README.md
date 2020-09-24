@@ -4,8 +4,10 @@
 <a align="center" href="https://suggestify-ui-design.vercel.app/">Deployed With Vercel</a>
 
 <h2 align="center"> Technologies Used :computer: </h1>
-- Less CSS
-- Styled Components
-- React with Hooks
-- Yupp
-- Axios
+<ul>
+<li> Less CSS </li>
+<li> Styled Components </li>
+<li> React with Hooks </li>
+<li> Yupp </li>
+<li> Axios </li>
+</ul>
